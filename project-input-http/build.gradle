@@ -3,7 +3,10 @@ project(':project-input-http') {
         //implementation project(':smeem-common')
         //implementation project(':smeem-application')
 
-        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation project(':project-common')
+        implementation project(':project-application')
+
+        //implementation 'org.springframework.boot:spring-boot-starter-web'
         //implementation 'org.springframework.boot:spring-boot-starter-security'
 
         // docs
@@ -17,12 +20,12 @@ project(':project-input-http') {
         // AOP
         implementation 'org.springframework.boot:spring-boot-starter-aop'
     }
-}
 
-tasks.bootJar {
-    enabled = false
-}
+    tasks.bootJar {
+        enabled = false
+    }
 
-tasks.jar {
-    enabled = true
+    tasks.jar {
+        enabled = true
+    }
 }

@@ -1,4 +1,8 @@
 rootProject.name = 'hexagonal-project'
 
 include 'project-bootstrap'
+include 'project-application'
 include 'project-input-http'
+include 'project-output-persistence'
+include 'project-output-persistence:mysql'
+include 'project-common'

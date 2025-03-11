@@ -1,0 +1,20 @@
+project(':project-output-persistence:mysql') {
+	dependencies {
+
+	}
+}
+
+allprojects {
+	dependencies {
+		implementation project(':project-common')
+		implementation project(':project-application')
+	}
+
+	tasks.bootJar {
+		enabled = false
+	}
+
+	tasks.jar {
+		enabled = true
+	}
+}

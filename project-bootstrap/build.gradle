@@ -1,8 +1,11 @@
 dependencies {
     implementation project(':project-input-http')
+    implementation project(':project-output-persistence')
+    implementation project(':project-output-persistence:mysql')
+    implementation project(':project-common')
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    //implementation 'org.springframework.boot:spring-boot-starter-web'
+    //implementation 'org.springframework.boot:spring-boot-starter-actuator'
     //runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 }
 

@@ -1,0 +1,18 @@
+project(':project-application') {
+    dependencies {
+        //implementation project(':smeem-common')
+        //implementation project(':smeem-application')
+        //implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        implementation project(':project-common')
+
+    }
+
+    tasks.bootJar {
+        enabled = false
+    }
+
+    tasks.jar {
+        enabled = true
+    }
+}
