@@ -1,7 +1,7 @@
 package com.project.mysql.persistence.repository;
 
-import org.springframework.stereotype.Repository;
+import com.project.mysql.persistence.entity.MemberEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface MemberRepository {
+public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 }
