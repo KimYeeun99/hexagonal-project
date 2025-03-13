@@ -1,0 +1,9 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:mysql-config/application-local.yml
+
+logging.level:
+    org.hibernate.SQL: debug
