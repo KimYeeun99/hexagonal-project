@@ -5,7 +5,10 @@ import com.project.application.domain.member.Member;
 import com.project.application.domain.member.Role;
 import com.project.application.domain.member.Status;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 

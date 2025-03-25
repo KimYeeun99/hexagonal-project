@@ -6,7 +6,6 @@ import com.project.common.exception.ExceptionCode;
 import com.project.common.exception.ProjectException;
 import com.project.mysql.persistence.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Repository;
 
 @Repository
