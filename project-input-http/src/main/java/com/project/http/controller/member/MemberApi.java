@@ -1,14 +1,13 @@
 package com.project.http.controller.member;
 
-import com.project.application.domain.member.Member;
 import com.project.application.port.input.MemberUseCase;
+import com.project.application.port.input.dto.request.MemberRegistRequest;
 import com.project.application.port.input.dto.response.MemberResponse;
+import com.project.http.controller.dto.ProjectResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,5 +19,13 @@ public class MemberApi {
     @GetMapping("/me")
     public MemberResponse getMember() {
         return memberUseCase.getMember(3L);
+    }
+
+    @PostMapping("/register")
+    public ProjectResponse<?> registerMember(@Valid @RequestBody MemberRegistRequest request) {
+        memberUseCase.registerMember(request);
+        return ProjectResponse.of(
+                "회원 등록 성공"
+        );
     }
 }

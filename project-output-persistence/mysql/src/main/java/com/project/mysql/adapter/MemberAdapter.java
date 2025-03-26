@@ -4,6 +4,7 @@ import com.project.application.domain.member.Member;
 import com.project.application.port.output.persistence.MemberPort;
 import com.project.common.exception.ExceptionCode;
 import com.project.common.exception.ProjectException;
+import com.project.mysql.persistence.entity.MemberEntity;
 import com.project.mysql.persistence.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,10 @@ public class MemberAdapter implements MemberPort {
         return memberRepository.findById(id)
                 .orElseThrow(() -> new ProjectException(ExceptionCode.NOT_FOUND))
                 .toDomain();
+    }
+
+    @Override
+    public void saveMember(Member member) {
+        memberRepository.save(MemberEntity.of(member));
     }
 }

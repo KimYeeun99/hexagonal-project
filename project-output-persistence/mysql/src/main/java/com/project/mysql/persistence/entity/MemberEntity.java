@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "member", schema = "development")
@@ -62,6 +63,11 @@ public class MemberEntity {
         return MemberEntity.builder()
                 .id(member.getId())
                 .username(member.getUsername())
+                .email(member.getEmail())
+                .phoneNumber(member.getPhoneNumber())
+                .dateOfBirth(LocalDate.parse(member.getDateOfBirth(), DateTimeFormatter.BASIC_ISO_DATE))
+                .gender(member.getGender())
+                .address(member.getAddress())
                 .build();
     }
 }

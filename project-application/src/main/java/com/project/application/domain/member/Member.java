@@ -10,4 +10,9 @@ import lombok.Getter;
 public class Member {
     private Long id;
     private String username;
+    String email;
+    String phoneNumber;
+    String dateOfBirth;
+    Gender gender;
+    String address;
 }
