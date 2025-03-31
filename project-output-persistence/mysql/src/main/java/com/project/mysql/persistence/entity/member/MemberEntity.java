@@ -1,4 +1,4 @@
-package com.project.mysql.persistence.entity;
+package com.project.mysql.persistence.entity.member;
 
 import com.project.application.domain.member.Gender;
 import com.project.application.domain.member.Member;
@@ -21,12 +21,11 @@ import java.time.format.DateTimeFormatter;
 @Getter
 public class MemberEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // 자동 증가되는 ID
     @Column(name = "member_id")
     private Long id;
 
-    @Column(name = "username", nullable = false, unique = true, length = 50)
-    private String username;
+    @Column(name = "name", nullable = false, unique = true, length = 50)
+    private String name;
 
     @Enumerated(EnumType.STRING)  // Enum 타입을 String으로 저장
     @Column(name = "role", nullable = false, columnDefinition = "ENUM('ADMIN', 'USER') DEFAULT 'USER'")
@@ -55,14 +54,14 @@ public class MemberEntity {
     public Member toDomain() {
         return Member.builder()
                 .id(id)
-                .username(username)
+                .name(name)
                 .build();
     }
 
     public static MemberEntity of(Member member) {
         return MemberEntity.builder()
                 .id(member.getId())
-                .username(member.getUsername())
+                .name(member.getName())
                 .email(member.getEmail())
                 .phoneNumber(member.getPhoneNumber())
                 .dateOfBirth(LocalDate.parse(member.getDateOfBirth(), DateTimeFormatter.BASIC_ISO_DATE))

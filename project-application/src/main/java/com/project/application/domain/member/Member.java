@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Member {
     private Long id;
-    private String username;
+    private String name;
     String email;
     String phoneNumber;
     String dateOfBirth;

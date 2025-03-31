@@ -1,10 +1,10 @@
-package com.project.application.domain.member;
+package com.project.application.service.member;
 
 import com.project.application.port.input.MemberUseCase;
-import com.project.application.port.input.dto.request.MemberRegistRequest;
-import com.project.application.port.input.dto.response.MemberResponse;
+import com.project.application.port.input.dto.request.member.LoginRequest;
+import com.project.application.port.input.dto.request.member.MemberRegistRequest;
+import com.project.application.port.input.dto.response.member.MemberResponse;
 import com.project.application.port.output.persistence.MemberPort;
-import com.project.application.port.output.persistence.TestPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +12,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MemberService implements MemberUseCase {
     private final MemberPort memberPort;
-    //private final  TestPort testPort;
 
+    @Override
+    public void login(LoginRequest request) {
+        memberPort.existMemberAuth(request.email());
+    }
 
     @Override
     public MemberResponse getMember(long id) {
         return MemberResponse.of(memberPort.findById(id));
-        //return null;
     }
 
     @Override

@@ -1,17 +1,13 @@
-package com.project.application.port.input.dto.request;
+package com.project.application.port.input.dto.request.member;
 
 import com.project.application.domain.member.Gender;
 import com.project.application.domain.member.Member;
 import com.project.application.domain.member.Role;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public record MemberRegistRequest(
-        String username,
+        String name,
         Role role,
         @Email
         String email,
@@ -23,7 +19,7 @@ public record MemberRegistRequest(
 ) {
         public Member registMember() {
                 return Member.builder()
-                        .username(this.username)
+                        .name(this.name)
                         .email(this.email)
                         .phoneNumber(this.phoneNumber)
                         .dateOfBirth(this.dateOfBirth)
